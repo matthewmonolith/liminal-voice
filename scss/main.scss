@@ -1,0 +1,48 @@
+$primary-bg: #272727;
+$font-weights: (
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+);
+
+body {
+    font-weight: map-get($font-weights, bold);
+    background: $primary-bg;
+}
+
+
+.index-body {
+    background-image: url(/voicebr/public/imgs/scarbor-siu-Ecb9O-btHYs-unsplash.jpg);
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    padding: 21px 25px;
+    background-color: rgba($color: white, $alpha: 0.5);
+    z-index: 5;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/* Styles for the sidebar links */
+.sidebar .sidebar-links {
+    padding: 10px;
+    list-style: none;
+}
+
+/* Styles for the sidebar navigation */
+.sidebar .sidebar-navigation {
+    padding: 10px;
+    background-color: darkgray;
+}
+
+/* Styles for the main content area */
+.main-content, .title {
+    padding: 40px;
+    margin-left: 150px;
+}
