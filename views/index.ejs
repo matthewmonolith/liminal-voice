@@ -1,36 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voices</title>
-    <link rel="stylesheet" href="/css/main.css" />
-</head>
-<body id="index-body">
-    <%- include('header') -%>
-<!-- 
-    <section class="sidebar">
-        <div class="sidebar-links">
-            <a href="#">What is Liminal Space?</a>
-        </div>
-        <div class="sidebar-navigation">
-            <nav>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Discover</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Site Help</a></li>
-            </nav>
-        </div>
-    </section> -->
-
+  <%- include('header') -%>
     <main class="main-content">
-        <div>
+        <div class="main-content-siteInfo">
           <!-- <img src="/imgs/logo transparent.png" alt="Logo"> -->
             <h1><a href="/profile">Voices From Liminal Space</a></h1>
             <span>A Social Network For Fans Of Liminal Space</span>
-            <span><a href="#">What is Liminal Space?</a></span>
+            <span class="siteInfo-question"><a href="#">What is Liminal Space?</a></span>
         </div>
-        <div class="login-container">
+
+        <div class="main-content-login-container">
                   <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
                   <div><%= el.msg %></div>
                   <% }) %> <% } %> <% if (locals.messages.info) { %> <%
@@ -38,7 +15,7 @@
                   <div><%= el.msg %></div>
                   <% }) %> <% } %>
                   
-                  <form action="/login" method="POST">
+                  <form action="/login" method="POST" class="main-content-login-form">
                     <div class="login-form-container">
                       <input
                         type="email"
@@ -68,14 +45,11 @@
                     <div class="breaker">
 
                     </div>
-
-                    <div class="form-button">
-                      <button>Sign Up</button>
-                    </div>    
-
                   </form>
+
+                    <div class="main-content-signup-container">
+                      <a href="/signup">Sign Up</a>
+                    </div>    
         </div>
     </main>
-</body>
-</html>
-
+    <%- include('footer') -%>

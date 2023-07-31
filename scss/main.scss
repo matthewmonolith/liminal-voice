@@ -57,7 +57,7 @@ body {
     background-color: darkgray;
 }
 
-#index-body {
+.index-body {
     background-image: url('/imgs/scarbor-siu-Ecb9O-btHYs-unsplash.jpg');
     background-size: cover;
     background-position: center center;
@@ -76,49 +76,122 @@ body {
     gap: 80px;
 
     
-    div {
-        font-size: 1.9rem;
+    #{&}-siteInfo {
         color: whitesmoke;
         display: flex;
         flex-direction: column;
+        align-items: center;
 
         h1 {
             margin: 5px 0;
+            font-size: 6.5rem;
+        }
+
+        span {
+            font-size: 3rem;
+        }
+
+        .siteInfo-question {
+            margin-top: 20px;
+            background: #04AA6D;
+            padding: 17px;
+            border-radius: 4px;
+            font-size: 1.9rem;
         }
     }
     
-    .login-container {
+    #{&}-login-container {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         background: rgba(255, 255, 255, 0.16);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(14.3px);
         border-radius: 5px;
         -webkit-backdrop-filter: blur(14.3px);
         padding: 10px;
-    }
 
-    form {
-
-        .login-form-container {
-            padding: 3px;
-
-               
-            .form-control {
-                border-radius: 5px;
-                padding: 10px;
-                border: 1px solid $primary-bg;
-                width: 250px;
-                height: 35px;
+        .main-content-login-form {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            
+            .login-form-container {
+                padding: 3px;
+    
+                   
+                .form-control {
+                    border-radius: 5px;
+                    padding: 10px;
+                    border: 1px solid $primary-bg;
+                    width: 250px;
+                    height: 35px;
+                }
             }
-
-        }
- 
+            .login-form-submit {
+                background-color: #04AA6D;
+                border: none;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+    }
         .form-button {
             padding: 2px;
+            display: flex;
+            flex-direction: column;
+            
+            button {
+                background-color: #04AA6D;
+                border: none;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                border-radius: 4px;
+                cursor: pointer;
+                 
+                }
 
-        button {
+            input {
+                color: white;
+                padding: 20px;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                border-radius: 4px;
+            }
+            
+
+            a {
+                text-align: center;
+                padding: 5px 0;
+                font-weight: 400;
+                color: white;
+                font-size: 1.8rem;
+            }
+        }
+
+        .breaker {
+            width: 100%;
+            border: 0.5px solid white;
+            margin-bottom: 10px;
+        }
+
+    }
+
+    &-signup-container a {
             background-color: #04AA6D;
             border: none;
             color: white;
@@ -127,24 +200,9 @@ body {
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 4px 2px;
+            margin: 4px 2px;    
             border-radius: 4px;
-            cursor: pointer; 
-            }
-
-        a {
-            text-align: center;
-            padding: 5px 0;
-            font-weight: 400;
-        }
-        }
-
-        .breaker {
-            width: 100%;
-            border: 1px solid $primary-bg;
-            margin-bottom: 10px;
-        }
-
+            cursor: pointer;
     }
 }
 
