@@ -85,6 +85,7 @@ body {
   padding: 17px;
   border-radius: 4px;
   font-size: 1.9rem;
+  font-weight: 400;
 }
 .main-content .main-content-login-container {
   display: flex;
@@ -112,6 +113,13 @@ body {
   border: 1px solid #272727;
   width: 250px;
   height: 35px;
+}
+.main-content .main-content-login-container .main-content-login-form .login-form-container #emailHelp {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  padding-top: 5px;
 }
 .main-content .main-content-login-container .main-content-login-form .login-form-submit {
   background-color: #04AA6D;
@@ -177,4 +185,5 @@ body {
   margin: 4px 2px;
   border-radius: 4px;
   cursor: pointer;
+  font-weight: 400;
 }/*# sourceMappingURL=main.css.map */
