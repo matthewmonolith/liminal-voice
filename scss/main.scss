@@ -5,14 +5,29 @@ $font-weights: (
     "bold": 700
 );
 
-body {
-    font-weight: map-get($font-weights, bold);
-    background: $primary-bg;
+html {
+    font-size: 62.5%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
 }
 
 
-.index-body {
-    background-image: url(/voicebr/public/imgs/scarbor-siu-Ecb9O-btHYs-unsplash.jpg);
+body {
+    font-weight: map-get($font-weights, bold);
+    background: $primary-bg;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.1px);
+    -webkit-backdrop-filter: blur(7.1px);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sidebar {
@@ -22,11 +37,12 @@ body {
     bottom: 0;
     width: 150px;
     padding: 21px 25px;
-    background-color: rgba($color: white, $alpha: 0.5);
-    z-index: 5;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.19);
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.8px);
+    -webkit-backdrop-filter: blur(7.8px);
 }
 
 /* Styles for the sidebar links */
@@ -41,8 +57,94 @@ body {
     background-color: darkgray;
 }
 
-/* Styles for the main content area */
-.main-content, .title {
-    padding: 40px;
-    margin-left: 150px;
+#index-body {
+    background-image: url('/imgs/scarbor-siu-Ecb9O-btHYs-unsplash.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
 }
+
+
+/* Styles for the main content area */
+.main-content{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 80px;
+
+    
+    div {
+        font-size: 1.9rem;
+        color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            margin: 5px 0;
+        }
+    }
+    
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.16);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(14.3px);
+        border-radius: 5px;
+        -webkit-backdrop-filter: blur(14.3px);
+        padding: 10px;
+    }
+
+    form {
+
+        .login-form-container {
+            padding: 3px;
+
+               
+            .form-control {
+                border-radius: 5px;
+                padding: 10px;
+                border: 1px solid $primary-bg;
+                width: 250px;
+                height: 35px;
+            }
+
+        }
+ 
+        .form-button {
+            padding: 2px;
+
+        button {
+            background-color: #04AA6D;
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            border-radius: 4px;
+            cursor: pointer; 
+            }
+
+        a {
+            text-align: center;
+            padding: 5px 0;
+            font-weight: 400;
+        }
+        }
+
+        .breaker {
+            width: 100%;
+            border: 1px solid $primary-bg;
+            margin-bottom: 10px;
+        }
+
+    }
+}
+

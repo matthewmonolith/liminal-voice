@@ -6,7 +6,7 @@
     <title>Voices</title>
     <link rel="stylesheet" href="/css/main.css" />
 </head>
-<body class="index-body">
+<body id="index-body">
     <%- include('header') -%>
 <!-- 
     <section class="sidebar">
@@ -25,8 +25,55 @@
 
     <main class="main-content">
         <div>
+          <!-- <img src="/imgs/logo transparent.png" alt="Logo"> -->
             <h1><a href="/profile">Voices From Liminal Space</a></h1>
             <span>A Social Network For Fans Of Liminal Space</span>
+            <span><a href="#">What is Liminal Space?</a></span>
+        </div>
+        <div class="login-container">
+                  <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+                  <div><%= el.msg %></div>
+                  <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+                  messages.info.forEach( el => { %>
+                  <div><%= el.msg %></div>
+                  <% }) %> <% } %>
+                  
+                  <form action="/login" method="POST">
+                    <div class="login-form-container">
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        name="email"
+                        placeholder="Email"
+                      />
+                    </div>
+
+                    <div class="login-form-container">
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="exampleInputPassword1"
+                        name="password"
+                        placeholder="Password"
+                      />
+                    </div>
+
+                    <div class="form-button">
+                      <button type="submit">Login</button>
+                      <a href="#">Forgotten password?</a>
+                    </div>
+
+                    <div class="breaker">
+
+                    </div>
+
+                    <div class="form-button">
+                      <button>Sign Up</button>
+                    </div>    
+
+                  </form>
         </div>
     </main>
 </body>
