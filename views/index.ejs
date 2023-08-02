@@ -9,10 +9,10 @@
 
         <div class="main-content-login-container">
                   <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-                  <div><%= el.msg %></div>
+                  <div class="main-content-login-alert"><%= el.msg %></div>
                   <% }) %> <% } %> <% if (locals.messages.info) { %> <%
                   messages.info.forEach( el => { %>
-                  <div><%= el.msg %></div>
+                  <div class="main-content-login-alert"><%= el.msg %></div>
                   <% }) %> <% } %>
                   
                   <form action="/login" method="POST" class="main-content-login-form">

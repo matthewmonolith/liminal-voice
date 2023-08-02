@@ -1,9 +1,7 @@
-$primary-bg: #272727;
-$font-weights: (
-    "regular": 400,
-    "medium": 500,
-    "bold": 700
-);
+@import './animations';
+@import './variables';
+@import './mixin';
+@import './functions';
 
 html {
     font-size: 62.5%;
@@ -17,7 +15,7 @@ a {
 
 
 body {
-    font-weight: map-get($font-weights, bold);
+    font-weight: weight(bold);
     background: $primary-bg;
     background: rgba(255, 255, 255, 0.06);
     border-radius: 16px;
@@ -25,9 +23,7 @@ body {
     backdrop-filter: blur(7.1px);
     -webkit-backdrop-filter: blur(7.1px);
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include center-flex(row);
 }
 
 .sidebar {
@@ -58,13 +54,7 @@ body {
 }
 
 .index-body {
-    background-image: url('/imgs/scarbor-siu-Ecb9O-btHYs-unsplash.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
+    @include center-bg('/imgs/scarbor-siu-Ecb9O-btHYs-unsplash.jpg');
 }
 
 
@@ -75,7 +65,26 @@ body {
     align-items: center;
     gap: 80px;
 
+
     
+        
+    &-login-alert {
+        color: white;
+        font-size: 2rem;
+        font-weight: weight(bold);;
+        text-align: center;
+        padding-top: 5px;
+        // -webkit-animation-name: animationtransition;
+        // -webkit-animation-duration: 0.8s;
+        // animation-name: animationtransition;
+        // animation-duration: 0.8s;
+
+    }
+    
+
+
+
+
     #{&}-siteInfo {
         color: whitesmoke;
         display: flex;
@@ -97,21 +106,19 @@ body {
             padding: 17px;
             border-radius: 4px;
             font-size: 1.9rem;
-            font-weight: map-get($font-weights, regular);
+            font-weight: weight(regular);
         }
     }
     
     #{&}-login-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        @include center-flex(column);
         background: rgba(255, 255, 255, 0.16);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(14.3px);
         border-radius: 5px;
         -webkit-backdrop-filter: blur(14.3px);
         padding: 10px;
+
 
         .main-content-login-form {
             display: flex;
@@ -132,7 +139,7 @@ body {
                 #emailHelp {
                     color: white;
                     font-size: 1.5rem;
-                    font-weight: map-get($font-weights, regular);
+                    font-weight: weight(regular);
                     text-align: center;
                     padding-top: 5px;
                 }
@@ -140,17 +147,7 @@ body {
             }
             
             .login-form-submit {
-                background-color: #04AA6D;
-                border: none;
-                color: white;
-                padding: 20px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                margin: 4px 2px;
-                border-radius: 4px;
-                cursor: pointer;
+                @include login-button;
             }
     }
         .form-button {
@@ -159,18 +156,7 @@ body {
             flex-direction: column;
             
             button {
-                background-color: #04AA6D;
-                border: none;
-                color: white;
-                padding: 20px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                margin: 4px 2px;
-                border-radius: 4px;
-                cursor: pointer;
-                 
+                @include login-button;
                 }
 
             input {
@@ -202,18 +188,8 @@ body {
     }
 
     &-signup-container a {
-            background-color: #04AA6D;
-            border: none;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;    
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: map-get($font-weights, regular);
+        @include login-button;
+        font-weight: weight(regular);
     }
 }
 
