@@ -223,11 +223,26 @@ body {
   align-items: center;
   flex-direction: column;
 }
+.profile-body .profile-info p {
+  font-size: 3rem;
+}
 .profile-body .profile-info .profile-profilePic {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.profile-body .profile-info .profile-profilePic .profilePic-container {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profile-body .profile-info .profile-profilePic .profilePic-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .profile-body .profile-info .profile-profilePic form {
   display: flex;

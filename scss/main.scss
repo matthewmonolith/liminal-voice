@@ -207,8 +207,25 @@ body {
         &-info {
             @include center-flex(column);
 
+            p {
+                font-size: 3rem;
+            }
+
             .profile-profilePic {
                 @include center-flex(column);
+
+                .profilePic-container{
+                    width: 250px;
+                    height: 250px;
+                    border-radius: 50%;
+                    overflow: hidden; 
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
 
                 form {
                     @include center-flex(column)
