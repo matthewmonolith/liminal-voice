@@ -193,3 +193,27 @@ body {
     }
 }
 
+/*Profile SCSS */
+.profile-body {
+    background: #018281;
+    color: white;
+
+    .profile {
+        width: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &-info {
+            @include center-flex(column);
+
+            .profile-profilePic {
+                @include center-flex(column);
+
+                form {
+                    @include center-flex(column)
+                }
+            }
+        }
+    }
+}

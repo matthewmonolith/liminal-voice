@@ -1,54 +1,56 @@
-  <%- include('header') -%>
-    <main class="main-content">
-        <div class="main-content-siteInfo">
-          <!-- <img src="/imgs/logo transparent.png" alt="Logo"> -->
-            <h1><a href="/profile">Voices From Liminal Space</a></h1>
-            <span>A Social Network For Fans Of Liminal Space</span>
-            <span class="siteInfo-question"><a href="#">What is Liminal Space?</a></span>
-        </div>
+<%- include('header') -%>
+<body class="index-body">
+  <main class="index main-content">
+    <div class="main-content-siteInfo">
+      <!-- <img src="/imgs/logo transparent.png" alt="Logo"> -->
+        <h1><a href="/profile">Voices From Liminal Space</a></h1>
+        <span>A Social Network For Fans Of Liminal Space</span>
+        <span class="siteInfo-question"><a href="#">What is Liminal Space?</a></span>
+    </div>
 
-        <div class="main-content-login-container">
-                  <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-                  <div class="main-content-login-alert"><%= el.msg %></div>
-                  <% }) %> <% } %> <% if (locals.messages.info) { %> <%
-                  messages.info.forEach( el => { %>
-                  <div class="main-content-login-alert"><%= el.msg %></div>
-                  <% }) %> <% } %>
-                  
-                  <form action="/login" method="POST" class="main-content-login-form">
-                    <div class="login-form-container">
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="exampleInputEmail1"
-                        aria-describedby="emailHelp"
-                        name="email"
-                        placeholder="Email"
-                      />
-                    </div>
+    <div class="main-content-login-container">
+              <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+              <div class="main-content-login-alert"><%= el.msg %></div>
+              <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+              messages.info.forEach( el => { %>
+              <div class="main-content-login-alert"><%= el.msg %></div>
+              <% }) %> <% } %>
+              
+              <form action="/login" method="POST" class="main-content-login-form">
+                <div class="login-form-container">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    name="email"
+                    placeholder="Email"
+                  />
+                </div>
 
-                    <div class="login-form-container">
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="exampleInputPassword1"
-                        name="password"
-                        placeholder="Password"
-                      />
-                    </div>
+                <div class="login-form-container">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    name="password"
+                    placeholder="Password"
+                  />
+                </div>
 
-                    <div class="form-button">
-                      <button type="submit">Login</button>
-                      <a href="#">Forgotten password?</a>
-                    </div>
+                <div class="form-button">
+                  <button type="submit">Login</button>
+                  <a href="#">Forgotten password?</a>
+                </div>
 
-                    <div class="breaker">
+                <div class="breaker">
 
-                    </div>
-                  </form>
+                </div>
+              </form>
 
-                    <div class="main-content-signup-container">
-                      <a href="/signup">Sign Up</a>
-                    </div>    
-        </div>
-    </main>
+                <div class="main-content-signup-container">
+                  <a href="/signup">Sign Up</a>
+                </div>    
+      </div>
+  </main>  
+</body>

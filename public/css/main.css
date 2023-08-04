@@ -204,4 +204,34 @@ body {
   border-radius: 4px;
   cursor: pointer;
   font-weight: 400;
+}
+
+/*Profile SCSS */
+.profile-body {
+  background: #018281;
+  color: white;
+}
+.profile-body .profile {
+  width: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.profile-body .profile-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.profile-body .profile-info .profile-profilePic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.profile-body .profile-info .profile-profilePic form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }/*# sourceMappingURL=main.css.map */

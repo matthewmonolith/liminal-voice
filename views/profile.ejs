@@ -1,46 +1,69 @@
 <%- include('header') -%>
-<div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
-          <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
-          </div>
-          <div class="mt-5">
-            <h2>Add a post</h2>
-            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-              <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="title" name="title">
-              </div>
-              <div class="mb-3">
-                <label for="caption" class="form-label">Caption</label>
-                <textarea class="form-control" id="caption" name="caption"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-            </form>
-          </div>
+<!-- <%- include('sidebar') -%> -->
+<body class="profile-body">
+  <section class="profile">
+
+    <section class="profile-info">
+
+      <div class="profile-profilePic">
+        <img src="<%=user.profilePicture%>" alt="<%=user.username%> profile picture">
+        <form action="/user/uploadProfilePic/<%=user._id%>?_method=PUT" enctype="multipart/form-data" method="POST">
+            <label for="imgUpload" class="form-label">Upload Profile Picture</label>
+            <input type="file" class="form-control" id="imageUpload" name="file">
+          <button type="submit" class="submit" value="Upload">Submit</button>
+        </form>
       </div>
-      <div class="col-6">
-        <ul class="row list-unstyled">
+
+      <p><strong>User Name</strong>:<%= user.userName %></p>
+
+      <div class="profile-bio">
+        <p class="bio"><%= user.bio %></p>
+        
+        <form action="/user/createBio/<%=user._id%>?_method=PUT" method="POST">
+            <label for="bio" class="form-label">Change profile bio</label>
+            <input type="text" class="form-control" id="bio" name="bio">
+          <button type="submit" class="submit">Submit</button>
+        </form>        
+
+      </div>
+
+      <span>Posts made: </span>
+      <span>Rank: conditional here, 1-2 posts is beginner explorer, 3-5 novice, 6-8 advanced, 8-10 expert</span>
+      <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+    </section>
+
+    <section class="profile-posts">
+      <div class="profile-posts-feed">
+        <ul class="post-feed-list">
         <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
+          <li class="feed-list-item">
             <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
+              <img class="img-item" src="<%= posts[i].image%>">
             </a>
+            <span><%= posts[i].caption%></span>
           </li>
         <% } %>
         </ul>
-        <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>  
       </div>  
-    </div>
-  </div>
-</div>
-<%- include('footer') -%>
+          <div class="profile-addPost">
+                <h2>Add a post</h2>
+                <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+                  <div class="addPost-info">
+                    <div class="addPost-info-title">
+                        <input type="text" class="form-control" id="title" name="title" placeholder="title">
+                    </div>
+                      <div class="addPost-info-caption">
+                        <textarea class="form-control" id="caption" name="caption" placeholder="add a caption to your post"></textarea>
+                      </div>
+                  </div>
+                  <div class="addPost-image">
+                    <label for="imgUpload" class="form-label">Upload Image</label>
+                    <input type="file" class="form-control" id="imageUpload" name="file">
+                  </div>
+                  <button type="submit" class="profile-addPost-submit" value="Upload">Submit</button>
+                </form>
+          </div>
+      </section>
+  </section>
+</body>
+<!-- <%- include('footer') -%> -->

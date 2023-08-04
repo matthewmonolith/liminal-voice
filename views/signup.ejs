@@ -1,40 +1,42 @@
 <%- include('header') -%>
-    <main class="main-content">
-            <div class="main-content-login-container">
-                <% if (locals.messages.errors) { %>
-                    <% messages.errors.forEach( el => { %>
-                        <div class="alert alert-danger"><%= el.msg %></div>
-                    <% }) %>    
-                <% } %>
-                <% if (locals.messages.info) { %>
-                    <% messages.info.forEach( el => { %>
-                        <div class="alert alert-info"><%= el.msg %></div>
-                    <% }) %>    
-                <% } %>
-                <form action="/signup" method="POST" class="main-content-login-form">
+<body class="index-body">
+  <main class="main-content">
+    <div class="main-content-login-container">
+        <% if (locals.messages.errors) { %>
+            <% messages.errors.forEach( el => { %>
+                <div class="alert alert-danger"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <% if (locals.messages.info) { %>
+            <% messages.info.forEach( el => { %>
+                <div class="alert alert-info"><%= el.msg %></div>
+            <% }) %>    
+        <% } %>
+        <form action="/signup" method="POST" class="main-content-login-form">
 
-                    <div class="login-form-container">
-                        <!-- <label for="userName" class="form-label">User Name</label> -->
-                        <input type="text" class="form-control" id="userName" name="userName" placeholder="Username">
-                      </div>
+            <div class="login-form-container">
+                <!-- <label for="userName" class="form-label">User Name</label> -->
+                <input type="text" class="form-control" id="userName" name="userName" placeholder="Username">
+              </div>
 
-                    <div class="login-form-container">
-                      <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Email">
-                      <div id="emailHelp" class="form-text">We'll never share your email</div>
-                    </div>
-                    
-                    <div class="login-form-container">
-                      <!-- <label for="password" class="form-label">Password</label> -->
-                      <input type="password" class="form-control" id="password" name="password" placeholder="password">
-                    </div>
+            <div class="login-form-container">
+              <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Email">
+              <div id="emailHelp" class="form-text">We'll never share your email</div>
+            </div>
+            
+            <div class="login-form-container">
+              <!-- <label for="password" class="form-label">Password</label> -->
+              <input type="password" class="form-control" id="password" name="password" placeholder="password">
+            </div>
 
-                    <div class="login-form-container">
-                        <!-- <label for="confirmPassword" class="form-label">Confirm Password</label> -->
-                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="confirm password">
-                      </div>
-                    <button type="submit" class="login-form-submit">Submit</button>
+            <div class="login-form-container">
+                <!-- <label for="confirmPassword" class="form-label">Confirm Password</label> -->
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="confirm password">
+              </div>
+            <button type="submit" class="login-form-submit">Submit</button>
 
-                  </form>
-                </div>
-    </main>
+          </form>
+        </div>
+</main>
+</body>
