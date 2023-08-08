@@ -19,10 +19,11 @@
       <p><strong>User Name</strong>:<%= user.userName %></p>
 
       <div class="profile-bio">
+        <h2>User's Bio</h2>
         <p class="bio"><%= user.bio %></p>
         
         <form action="/user/createBio/<%=user._id%>?_method=PUT" method="POST">
-            <label for="bio" class="form-label">Change profile bio</label>
+            <label for="bio" class="form-label">Change profile's bio</label>
             <input type="text" class="form-control" id="bio" name="bio">
           <button type="submit" class="submit">Submit</button>
         </form>        
