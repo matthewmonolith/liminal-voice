@@ -39,3 +39,4 @@ module.exports = function (passport) {
     User.findById(id, (err, user) => done(err, user));
   });
 };
+///newUser.profileImg = "images/uploads/rc-logo.png"
