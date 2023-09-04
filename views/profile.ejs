@@ -4,7 +4,7 @@
   <section class="profile">
 
     <section class="profile-info">
-
+      <p><%= user.userName %></p>
       <div class="profile-profilePic">
         <div class="profilePic-container">
           <img src="<%=user.profilePicture%>" alt="<%=user.username%> profile picture">
@@ -16,10 +16,8 @@
         </form>
       </div>
 
-      <p><strong>User Name</strong>:<%= user.userName %></p>
-
       <div class="profile-bio">
-        <h2>User's Bio</h2>
+        <h2>User's Bio:</h2>
         <p class="bio"><%= user.bio %></p>
         
         <form action="/user/createBio/<%=user._id%>?_method=PUT" method="POST">
@@ -69,5 +67,6 @@
           </div>
       </section>
   </section>
+  <script src="main.js"></script>
 </body>
 <!-- <%- include('footer') -%> -->

@@ -5,6 +5,7 @@
 
 html {
     font-size: 62.5%;
+    font-family: 'Roboto Mono', monospace;
 }
 
 a {
@@ -23,7 +24,6 @@ body {
     backdrop-filter: blur(7.1px);
     -webkit-backdrop-filter: blur(7.1px);
     margin: 0;
-    @include center-flex(row);
 }
 
 .sidebar {
@@ -59,6 +59,11 @@ body {
 
 
 /* Styles for the main content area */
+.index-body {
+    @include center-flex(row);
+}
+
+
 .main-content{
     display: flex;
     justify-content: space-evenly;
@@ -160,13 +165,7 @@ body {
                 }
 
             input {
-                color: white;
-                padding: 20px;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                margin: 4px 2px;
-                border-radius: 4px;
+                @include input-style
             }
             
 
@@ -197,18 +196,31 @@ body {
 .profile-body {
     background: #018281;
     color: white;
+    margin: 0 !important;
+    padding: 0 !important;
 
     .profile {
         width: 100vh;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        // justify-content: space-between;
 
         &-info {
-            @include center-flex(column);
+            // @include center-flex(column);
+            flex:1;
+            /* From https://css.glass */
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(11.1px);
+            -webkit-backdrop-filter: blur(11.1px);
+            border: 1px solid rgba(255, 255, 255, 0.34);
+            padding: 40px;
+            margin: 30px;
 
             p {
-                font-size: 3rem;
+                font-size: 3.5rem;
+                margin: 10px 0;
             }
 
             .profile-profilePic {
@@ -231,6 +243,36 @@ body {
                     @include center-flex(column)
                 }
             }
+
+            .profile-bio {
+                h2 {
+                    font-size: 2.5rem;
+                    margin: 10px 0;
+                    font-weight: 700;
+                }
+                p {
+                    margin: 5px 0;
+                    border: 1px solid gainsboro;
+                    padding: 10px;
+                    border-radius: 4px;
+                }
+
+                form {
+                    label {
+                        font-size: 2rem;
+                    }
+                    button {
+                        @include submit-button
+                    }
+                    input {
+                        @include input-style-small
+                    }
+                }
+            }
+
+        }
+        &-posts {
+            flex:2;
         }
     }
 }

@@ -10,6 +10,7 @@
 }
 html {
   font-size: 62.5%;
+  font-family: "Roboto Mono", monospace;
 }
 
 a {
@@ -27,10 +28,6 @@ body {
   backdrop-filter: blur(7.1px);
   -webkit-backdrop-filter: blur(7.1px);
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
 }
 
 .sidebar {
@@ -71,6 +68,13 @@ body {
 }
 
 /* Styles for the main content area */
+.index-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
 .main-content {
   display: flex;
   justify-content: space-evenly;
@@ -210,21 +214,29 @@ body {
 .profile-body {
   background: #018281;
   color: white;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 .profile-body .profile {
   width: 100vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 .profile-body .profile-info {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  flex: 1;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.1px);
+  -webkit-backdrop-filter: blur(11.1px);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  padding: 40px;
+  margin: 30px;
 }
 .profile-body .profile-info p {
-  font-size: 3rem;
+  font-size: 3.5rem;
+  margin: 10px 0;
 }
 .profile-body .profile-info .profile-profilePic {
   display: flex;
@@ -249,4 +261,43 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.profile-body .profile-info .profile-bio h2 {
+  font-size: 2.5rem;
+  margin: 10px 0;
+  font-weight: 700;
+}
+.profile-body .profile-info .profile-bio p {
+  margin: 5px 0;
+  border: 1px solid gainsboro;
+  padding: 10px;
+  border-radius: 4px;
+}
+.profile-body .profile-info .profile-bio form label {
+  font-size: 2rem;
+}
+.profile-body .profile-info .profile-bio form button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 0px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.profile-body .profile-info .profile-bio form input {
+  padding: 10px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 0;
+  border-radius: 4px;
+  border: 0;
+}
+.profile-body .profile-posts {
+  flex: 2;
 }/*# sourceMappingURL=main.css.map */
