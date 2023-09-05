@@ -11,6 +11,7 @@
 html {
   font-size: 62.5%;
   font-family: "Roboto Mono", monospace;
+  height: 100%;
 }
 
 a {
@@ -28,13 +29,10 @@ body {
   backdrop-filter: blur(7.1px);
   -webkit-backdrop-filter: blur(7.1px);
   margin: 0;
+  height: 100%;
 }
 
 .sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
   width: 150px;
   padding: 21px 25px;
   background: rgba(255, 255, 255, 0.19);
@@ -44,7 +42,18 @@ body {
   backdrop-filter: blur(7.8px);
   -webkit-backdrop-filter: blur(7.8px);
 }
+.sidebar .sidebar-links {
+  font-size: 2rem;
+}
+.sidebar .sidebar-links li {
+  margin: 15px 0;
+}
 
+@media screen and (min-width: 2560px) and (min-height: 1440px) {
+  .sidebar {
+    height: 100vh;
+  }
+}
 /* Styles for the sidebar links */
 .sidebar .sidebar-links {
   padding: 10px;
@@ -155,6 +164,7 @@ body {
   margin: 4px 2px;
   border-radius: 4px;
   cursor: pointer;
+  font-family: "Roboto Mono", monospace;
 }
 .main-content .main-content-login-container .form-button {
   padding: 2px;
@@ -173,6 +183,7 @@ body {
   margin: 4px 2px;
   border-radius: 4px;
   cursor: pointer;
+  font-family: "Roboto Mono", monospace;
 }
 .main-content .main-content-login-container .form-button input {
   color: white;
@@ -207,24 +218,23 @@ body {
   margin: 4px 2px;
   border-radius: 4px;
   cursor: pointer;
+  font-family: "Roboto Mono", monospace;
   font-weight: 400;
 }
 
 /*Profile SCSS */
 .profile-body {
-  background: #018281;
+  background: linear-gradient(to bottom, #C0C0C0, #A0A0A0);
   color: white;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 .profile-body .profile {
-  width: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: row;
+  min-height: 100vh;
 }
 .profile-body .profile-info {
   flex: 1;
-  /* From https://css.glass */
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -233,16 +243,28 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.34);
   padding: 40px;
   margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 30vh;
+  max-height: 65vh;
 }
 .profile-body .profile-info p {
   font-size: 3.5rem;
   margin: 10px 0;
+  text-align: center;
 }
 .profile-body .profile-info .profile-profilePic {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 20px;
+  align-self: center;
+}
+.profile-body .profile-info .profile-profilePic .bio {
+  font-size: 1.7rem;
 }
 .profile-body .profile-info .profile-profilePic .profilePic-container {
   width: 250px;
@@ -262,8 +284,50 @@ body {
   align-items: center;
   flex-direction: column;
 }
+.profile-body .profile-info .profile-profilePic form label {
+  font-size: 2rem;
+}
+.profile-body .profile-info .profile-profilePic form input[type=file] {
+  display: none;
+}
+.profile-body .profile-info .profile-profilePic form .custom-file-upload {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 0px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Roboto Mono", monospace;
+}
+.profile-body .profile-info .profile-profilePic form .custom-file-upload label {
+  margin-left: 10px;
+}
+.profile-body .profile-info .profile-profilePic form .custom-file-upload input[type=file] {
+  position: absolute;
+  left: -9999px;
+}
+.profile-body .profile-info .profile-profilePic form button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 0px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Roboto Mono", monospace;
+  background-color: #06779E;
+}
 .profile-body .profile-info .profile-bio h2 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   margin: 10px 0;
   font-weight: 700;
 }
@@ -272,6 +336,10 @@ body {
   border: 1px solid gainsboro;
   padding: 10px;
   border-radius: 4px;
+  font-size: 2rem;
+}
+.profile-body .profile-info .profile-bio form {
+  margin-top: 10px;
 }
 .profile-body .profile-info .profile-bio form label {
   font-size: 2rem;
@@ -288,6 +356,7 @@ body {
   margin: 4px 0px;
   border-radius: 4px;
   cursor: pointer;
+  font-family: "Roboto Mono", monospace;
 }
 .profile-body .profile-info .profile-bio form input {
   padding: 10px;
@@ -298,6 +367,130 @@ body {
   border-radius: 4px;
   border: 0;
 }
+.profile-body .profile-info .profile-misc {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.profile-body .profile-info .profile-misc span {
+  margin: 5px 0;
+  font-size: 2rem;
+  text-align: center;
+}
+.profile-body .profile-info .profile-misc a {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 0px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Roboto Mono", monospace;
+  background-color: #06779E;
+}
 .profile-body .profile-posts {
   flex: 2;
+}
+.profile-body .profile .profile-posts {
+  margin: 30px;
+  max-height: 65vh;
+}
+.profile-body .profile .profile-posts .profile-posts-feed h2 {
+  font-size: 4rem;
+}
+.profile-body .profile .profile-posts .profile-posts-feed ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.profile-body .profile .profile-posts .profile-posts-feed li {
+  list-style-type: none;
+  -webkit-animation-name: animationtransition;
+  -webkit-animation-duration: 0.8s;
+  animation-name: animationtransition;
+  animation-duration: 0.8s;
+}
+.profile-body .profile .profile-posts .profile-posts-feed li img {
+  width: 250px;
+  height: 250px;
+  border-radius: 4px;
+}
+.profile-body .profile .profile-posts .profile-addPost h2 {
+  font-size: 2rem;
+}
+.profile-body .profile .profile-posts .profile-addPost form {
+  margin-top: 10px;
+}
+.profile-body .profile .profile-posts .profile-addPost form label {
+  font-size: 2rem;
+}
+.profile-body .profile .profile-posts .profile-addPost form button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 0px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Roboto Mono", monospace;
+}
+.profile-body .profile .profile-posts .profile-addPost form input {
+  padding: 10px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 0;
+  border-radius: 4px;
+  border: 0;
+}
+.profile-body .profile .profile-posts .profile-addPost .addPost-info-caption textarea {
+  padding: 10px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 0;
+  border-radius: 4px;
+  border: 0;
+}
+.profile-body .profile .profile-posts .profile-addPost .addPost-image {
+  display: flex;
+  flex-direction: column;
+  /* Style the custom upload button */
+  /* Change button style on hover */
+}
+.profile-body .profile .profile-posts .profile-addPost .addPost-image input[type=file] {
+  display: none;
+}
+.profile-body .profile .profile-posts .profile-addPost .addPost-image .custom-file-upload {
+  display: inline-block;
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 0px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Roboto Mono", monospace;
+  width: 150px;
+}
+.profile-body .profile .profile-posts .profile-addPost .addPost-image .custom-file-upload:hover {
+  background-color: #0056b3;
+}
+.profile-body .profile .profile-posts .profile-addPost button {
+  width: 170px;
+  background-color: #06779E !important;
 }/*# sourceMappingURL=main.css.map */

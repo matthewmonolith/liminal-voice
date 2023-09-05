@@ -29,6 +29,7 @@
    margin: 4px 2px;
   border-radius: 4px;
   cursor: pointer;
+  font-family: 'Roboto Mono', monospace;
 }
 
 @mixin submit-button {
@@ -43,6 +44,7 @@
   margin: 4px 0px;
   border-radius: 4px;
   cursor: pointer;
+  font-family: 'Roboto Mono', monospace;
 }
 
 @mixin input-style {

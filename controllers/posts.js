@@ -2,11 +2,27 @@ const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment")
 
+//functions
+function determineRank(postCount) {
+  if (postCount >= 1 && postCount <= 2) {
+    return "Beginner Explorer";
+  } else if (postCount >= 3 && postCount <= 5) {
+    return "Novice Explorer";
+  } else if (postCount >= 6 && postCount <= 8) {
+    return "Advanced Explorer";
+  } else if (postCount >= 9 && postCount <= 10) {
+    return "Expert Explorer";
+  } else {
+    return "Unknown Explorer";
+  }
+}
+
+
 module.exports = {
   getProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
-      res.render("profile.ejs", { posts: posts, user: req.user });
+      res.render("profile.ejs", { posts: posts, user: req.user, determineRank });
     } catch (err) {
       console.log(err);
     }

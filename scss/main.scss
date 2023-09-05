@@ -6,6 +6,7 @@
 html {
     font-size: 62.5%;
     font-family: 'Roboto Mono', monospace;
+    height: 100%;
 }
 
 a {
@@ -24,13 +25,15 @@ body {
     backdrop-filter: blur(7.1px);
     -webkit-backdrop-filter: blur(7.1px);
     margin: 0;
+    height: 100%;
 }
 
 .sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    // position: fixed;
+    // left: 0;
+    // top: 0;
+    // bottom: 0;
+    // height: calc(100vh - 43px);    
     width: 150px;
     padding: 21px 25px;
     background: rgba(255, 255, 255, 0.19);
@@ -39,7 +42,22 @@ body {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(7.8px);
     -webkit-backdrop-filter: blur(7.8px);
+
+    .sidebar-links {
+        font-size: 2rem;
+        
+        li {
+            margin: 15px 0;
+        }
+    }
 }
+
+@media screen and (min-width: 2560px) and (min-height: 1440px) {
+    .sidebar {
+        height: 100vh;
+    }
+  }
+  
 
 /* Styles for the sidebar links */
 .sidebar .sidebar-links {
@@ -79,11 +97,6 @@ body {
         font-weight: weight(bold);;
         text-align: center;
         padding-top: 5px;
-        // -webkit-animation-name: animationtransition;
-        // -webkit-animation-duration: 0.8s;
-        // animation-name: animationtransition;
-        // animation-duration: 0.8s;
-
     }
     
 
@@ -194,21 +207,18 @@ body {
 
 /*Profile SCSS */
 .profile-body {
-    background: #018281;
+    background: linear-gradient(to bottom, #C0C0C0, #A0A0A0);
     color: white;
-    margin: 0 !important;
-    padding: 0 !important;
 
     .profile {
-        width: 100vh;
+        width: 100%;
         display: flex;
         flex-direction: row;
-        // justify-content: space-between;
+        min-height: 100vh;
 
         &-info {
             // @include center-flex(column);
             flex:1;
-            /* From https://css.glass */
             background: rgba(255, 255, 255, 0.05);
             border-radius: 16px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -217,14 +227,28 @@ body {
             border: 1px solid rgba(255, 255, 255, 0.34);
             padding: 40px;
             margin: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 30vh;
+            max-height: 65vh;
 
             p {
                 font-size: 3.5rem;
                 margin: 10px 0;
+                text-align: center;
             }
 
             .profile-profilePic {
                 @include center-flex(column);
+                margin-top: 20px;
+                align-self: center;
+
+                
+                .bio {
+                    font-size: 1.7rem;
+                }
 
                 .profilePic-container{
                     width: 250px;
@@ -240,13 +264,41 @@ body {
                 }
 
                 form {
-                    @include center-flex(column)
+                    @include center-flex(column);
+
+                    label {
+                        font-size: 2rem;
+                    }
+
+                    input[type="file"] {
+                        display: none;
+                    }
+                    
+
+                    .custom-file-upload {
+                        @include submit-button
+                    }
+                    
+
+                    .custom-file-upload label {
+                        margin-left: 10px;
+                    }
+                    
+                    .custom-file-upload input[type="file"] {
+                        position: absolute;
+                        left: -9999px;
+                    }
+
+                    button {
+                        @include submit-button;
+                        background-color:#06779E;
+                    }
                 }
             }
 
             .profile-bio {
                 h2 {
-                    font-size: 2.5rem;
+                    font-size: 2.3rem;
                     margin: 10px 0;
                     font-weight: 700;
                 }
@@ -255,9 +307,12 @@ body {
                     border: 1px solid gainsboro;
                     padding: 10px;
                     border-radius: 4px;
+                    font-size: 2rem;
                 }
 
                 form {
+                    margin-top: 10px;
+
                     label {
                         font-size: 2rem;
                     }
@@ -270,9 +325,111 @@ body {
                 }
             }
 
+            .profile-misc {
+                align-self: center;
+                @include center-flex(column);
+
+                span {
+                    margin: 5px 0;
+                    font-size: 2rem;
+                    text-align: center;
+                }
+
+                a {
+                    @include submit-button;
+                    background-color: #06779E;
+                }
+            }
+
         }
         &-posts {
             flex:2;
+        }
+
+        .profile-posts {
+            margin: 30px;
+            max-height: 65vh;
+
+            .profile-posts-feed {
+
+                h2 {
+                    font-size: 4rem;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                }
+
+                li {
+                    list-style-type: none;
+                    -webkit-animation-name: animationtransition;
+                    -webkit-animation-duration: 0.8s;
+                    animation-name: animationtransition;
+                    animation-duration: 0.8s;
+
+                    img {
+                        width: 250px;
+                        height: 250px;
+                        border-radius: 4px;
+                    }
+                }
+
+                // height: 60vh;
+            }
+
+            .profile-addPost {
+                h2 {
+                    font-size: 2rem;
+                }
+
+                form {
+                    margin-top: 10px;
+
+                    label {
+                        font-size: 2rem;
+                    }
+                    button {
+                        @include submit-button
+                    }
+                    input {
+                        @include input-style-small
+                    }
+                }
+
+                .addPost-info-caption {
+                    textarea {
+                        @include input-style-small
+                    }
+                }
+
+                .addPost-image {
+                    display: flex;
+                    flex-direction: column;
+
+                    input[type="file"] {
+                        display: none;
+                      }
+                      
+                      /* Style the custom upload button */
+                      .custom-file-upload {
+                        display: inline-block;
+                        @include submit-button;
+                        width:150px;
+                      }
+                      
+                      /* Change button style on hover */
+                      .custom-file-upload:hover {
+                        background-color: #0056b3;
+                      }
+                }
+
+                button {
+                    width: 170px;
+                    background-color: #06779E !important;
+                }
+            }
         }
     }
 }

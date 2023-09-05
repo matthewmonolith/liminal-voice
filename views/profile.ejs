@@ -1,24 +1,23 @@
 <%- include('header') -%>
-<!-- <%- include('sidebar') -%> -->
 <body class="profile-body">
   <section class="profile">
-
+    <%- include('sidebar') -%>
     <section class="profile-info">
-      <p><%= user.userName %></p>
       <div class="profile-profilePic">
+        <p><%= user.userName %></p>
         <div class="profilePic-container">
           <img src="<%=user.profilePicture%>" alt="<%=user.username%> profile picture">
         </div>
-        <form action="/user/uploadProfilePic/<%=user._id%>?_method=PUT" enctype="multipart/form-data" method="POST">
-            <label for="imgUpload" class="form-label">Upload Profile Picture</label>
-            <input type="file" class="form-control" id="imageUpload" name="file">
-          <button type="submit" class="submit" value="Upload">Submit</button>
-        </form>
-      </div>
-
-      <div class="profile-bio">
-        <h2>User's Bio:</h2>
         <p class="bio"><%= user.bio %></p>
+        <form action="/user/uploadProfilePic/<%=user._id%>?_method=PUT" enctype="multipart/form-data" method="POST">
+          <label for="imageUpload" class="custom-file-upload">
+            <span>Upload Profile Picture</span>
+            <input type="file" id="imageUpload" name="file">
+          </label>
+          <button type="submit" class="submit" value="Upload">Submit to upload</button>
+        </form>
+        
+      <div class="profile-bio">
         
         <form action="/user/createBio/<%=user._id%>?_method=PUT" method="POST">
             <label for="bio" class="form-label">Change profile's bio</label>
@@ -28,9 +27,12 @@
 
       </div>
 
-      <span>Posts made: </span>
-      <span>Rank: conditional here, 1-2 posts is beginner explorer, 3-5 novice, 6-8 advanced, 8-10 expert</span>
-      <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+      </div>
+      <div class="profile-misc">
+        <span>Posts made: <%= posts.length %></span>
+        <span>Rank: <%= determineRank(posts.length) %></span>
+        <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+      </div>      
     </section>
 
     <section class="profile-posts">
@@ -59,14 +61,16 @@
                       </div>
                   </div>
                   <div class="addPost-image">
-                    <label for="imgUpload" class="form-label">Upload Image</label>
-                    <input type="file" class="form-control" id="imageUpload" name="file">
+                    <label for="imageUpload" class="custom-file-upload">
+                      Upload Image
+                    </label>
+                    <input type="file" class="form-control" id="imageUpload" name="file">                    
                   </div>
                   <button type="submit" class="profile-addPost-submit" value="Upload">Submit</button>
                 </form>
           </div>
       </section>
   </section>
-  <script src="main.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 <!-- <%- include('footer') -%> -->
