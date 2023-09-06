@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema({
   title: {
+    require: true,
     type: String,
   },
   image: {
@@ -14,6 +15,7 @@ const PostSchema = new mongoose.Schema({
   },
   caption: {
     type: String,
+    require: true
   },
   likes: {
     type: Number,

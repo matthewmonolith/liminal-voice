@@ -41,6 +41,7 @@ body {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(7.8px);
   -webkit-backdrop-filter: blur(7.8px);
+  color: white;
 }
 .sidebar .sidebar-links {
   font-size: 2rem;
@@ -66,7 +67,12 @@ body {
   background-color: darkgray;
 }
 
+/* Styles for the main content area */
 .index-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   background-image: url("/imgs/scarbor-siu-Ecb9O-btHYs-unsplash.jpg");
   background-size: cover;
   background-position: center center;
@@ -74,14 +80,6 @@ body {
   height: 100vh;
   padding: 0;
   margin: 0;
-}
-
-/* Styles for the main content area */
-.index-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
 }
 
 .main-content {
@@ -250,6 +248,11 @@ body {
   max-width: 30vh;
   max-height: 65vh;
 }
+@media (max-width: 1920px) {
+  .profile-body .profile-info {
+    max-height: 100%;
+  }
+}
 .profile-body .profile-info p {
   font-size: 3.5rem;
   margin: 10px 0;
@@ -407,6 +410,7 @@ body {
 .profile-body .profile .profile-posts .profile-posts-feed ul {
   display: flex;
   flex-direction: row;
+  gap: 50px;
   flex-wrap: wrap;
 }
 .profile-body .profile .profile-posts .profile-posts-feed li {
@@ -417,8 +421,9 @@ body {
   animation-duration: 0.8s;
 }
 .profile-body .profile .profile-posts .profile-posts-feed li img {
-  width: 250px;
-  height: 250px;
+  max-width: 300px; /* Reduce the maximum width */
+  max-height: 300px; /* Reduce the maximum height */
+  margin-top: 10px; /* Add some spacing between the button and the image */
   border-radius: 4px;
 }
 .profile-body .profile .profile-posts .profile-addPost h2 {
@@ -468,9 +473,6 @@ body {
   /* Style the custom upload button */
   /* Change button style on hover */
 }
-.profile-body .profile .profile-posts .profile-addPost .addPost-image input[type=file] {
-  display: none;
-}
 .profile-body .profile .profile-posts .profile-addPost .addPost-image .custom-file-upload {
   display: inline-block;
   background-color: #04AA6D;
@@ -493,4 +495,61 @@ body {
 .profile-body .profile .profile-posts .profile-addPost button {
   width: 170px;
   background-color: #06779E !important;
+}
+
+.posts-body {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  background-image: url("/imgs/antipolygon-youtube-SAM4WPGSh_o-unsplash.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1; /* Allow the main content to grow and take remaining space */
+}
+
+.sidebar {
+  width: 150px; /* Set the fixed width for the sidebar */
+  /* Add other styles for the sidebar */
+}
+
+.posts {
+  flex-grow: 1; /* Allow the main content to grow and take remaining space */
+  /* Add other styles for the main content (posts) */
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+}
+
+.posts-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 40px;
+}
+.posts-list li {
+  display: inline;
+}
+.posts-list li img {
+  max-width: 100%;
+  max-height: 400px;
+  margin-top: 10px;
+  -webkit-animation-name: animationtransition;
+  -webkit-animation-duration: 0.8s;
+  animation-name: animationtransition;
+  animation-duration: 0.8s;
 }/*# sourceMappingURL=main.css.map */
