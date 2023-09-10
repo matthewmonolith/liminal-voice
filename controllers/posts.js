@@ -28,24 +28,19 @@ module.exports = {
   },
   getFeed: async (req, res) => {
     try {
-      const posts = await Post.find().sort({ createdAt: 1 }).lean();
-      res.render("feed.ejs", { posts: posts });
-    } catch (err) {
-      console.log(err);
-    }
-  },
-  getFeedTop: async (req, res) => {
-    try {
-      const posts = await Post.find().sort({ likes: -1 }).lean();
-      res.render("feed.ejs", { posts: posts });
-    } catch (err) {
-      console.log(err);
-    }
-  },
-  getFeedNew: async (req, res) => {
-    try {
-      const posts = await Post.find().sort({ createdAt: -1  }).lean();
-      res.render("feed.ejs", { posts: posts });
+      const filter = req.params.filter
+      if(filter === 'oldest'){
+        const posts = await Post.find().sort({ createdAt: 1  }).lean();
+        res.render("feed.ejs", { posts: posts });
+      }
+      else if(filter === 'top'){
+        const posts = await Post.find().sort({ likes: -1 }).lean();
+        res.render("feed.ejs", { posts: posts });
+        
+      }else if(filter === 'new'){
+        const posts = await Post.find().sort({ createdAt: -1  }).lean();
+        res.render("feed.ejs", { posts: posts });
+      }
     } catch (err) {
       console.log(err);
     }

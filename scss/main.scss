@@ -7,6 +7,8 @@ html {
     font-size: 62.5%;
     font-family: 'Roboto Mono', monospace;
     height: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 a {
@@ -25,6 +27,7 @@ body {
     backdrop-filter: blur(7.1px);
     -webkit-backdrop-filter: blur(7.1px);
     margin: 0;
+    padding: 0;
     height: 100%;
 }
 
@@ -380,9 +383,9 @@ body {
                     animation-duration: 0.8s;
 
                     img {
-                        max-width: 300px; /* Reduce the maximum width */
-                        max-height: 300px; /* Reduce the maximum height */
-                        margin-top: 10px; /* Add some spacing between the button and the image */
+                        max-width: 300px;
+                        max-height: 300px;
+                        margin-top: 10px;
                         border-radius: 4px;
                     }
                 }
@@ -418,19 +421,13 @@ body {
                 .addPost-image {
                     display: flex;
                     flex-direction: column;
-
-                    // input[type="file"] {
-                    //     display: none;
-                    // }
                       
-                      /* Style the custom upload button */
                       .custom-file-upload {
                         display: inline-block;
                         @include submit-button;
                         width:150px;
                       }
                       
-                      /* Change button style on hover */
                       .custom-file-upload:hover {
                         background-color: #0056b3;
                       }
@@ -490,13 +487,6 @@ body {
   
   .posts-feed {
     height: auto;
-
-//   .posts-feed {
-//     // display: flex;
-//     // flex-direction: row;
-//     // justify-content: flex-start;
-//     // width: 100vh;
-//   }
   
   .posts-list {
     list-style-type: none;
@@ -526,3 +516,123 @@ body {
   }
 }
 }
+
+//Individual Post Page
+.post-body {
+    @include center-bg('/imgs/alex-pavor-eP-d0Ja7pcs-unsplash.jpg');
+    color: white;
+    display: flex;
+    justify-content: flex-start; /* Align items at the start (left) horizontally */
+    align-items: flex-start; /* Align items at the start (top) vertically */
+    height: 100%;
+    overflow: hidden;
+  
+    .sidebar {
+      min-width: 150px;
+      height: 100%;
+    }
+  
+    main {
+      display: flex;
+      justify-content: center; /* Center main content horizontally */
+      flex-grow: 1; /* Allow main to take up remaining horizontal space */
+
+      .post-postContainer {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 20px;
+        height: auto;
+        width: auto;
+
+        h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin:0;
+            margin-bottom: 10px;
+        }
+
+        img {
+           max-width: 100%;
+           height: auto;
+           display: block;
+           border-radius: 4px;
+           -webkit-animation-name: animationtransition;
+          -webkit-animation-duration: 0.8s;
+          animation-name: animationtransition;
+          animation-duration: 0.8s;
+        }
+
+        img:focus + .post-caption {
+            display: block;
+          }
+          
+        .post-caption {
+            font-size: 3rem;
+            background: rgba(156, 156, 156, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(156, 156, 156, 0.3);
+            padding-left: 20px;
+            display: none;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            transition: opacity 0.3s ease
+              
+        }
+
+        .post-postInteractivity {
+            @include center-flex(row);
+            gap: 30px;
+
+            form {
+                button {
+                    background: none;
+                    border: none;
+                    padding: 0;
+                    margin: 20px;
+                    cursor: pointer;
+                    font-size: inherit;
+                    color: inherit;
+
+
+                    i {
+                        font-size: 3.3rem;
+                        transition: color 0.3s ease;
+                    }
+                    i:hover{
+                        color: #04AA6D;
+                    }
+
+                    #bin:hover {
+                        color: red;
+                    }
+                }
+            }
+
+            h3 {
+                font-size: 2.6rem;
+            }
+        }
+
+        .post-comments {
+            h2 {
+                font-size: 2rem;
+            }
+        }
+      }
+    }
+  }
+
+  
+  
