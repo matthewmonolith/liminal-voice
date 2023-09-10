@@ -17,7 +17,6 @@ function determineRank(postCount) {
   }
 }
 
-
 module.exports = {
   getProfile: async (req, res) => {
     try {
@@ -29,7 +28,23 @@ module.exports = {
   },
   getFeed: async (req, res) => {
     try {
-      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
+      const posts = await Post.find().sort({ createdAt: 1 }).lean();
+      res.render("feed.ejs", { posts: posts });
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  getFeedTop: async (req, res) => {
+    try {
+      const posts = await Post.find().sort({ likes: -1 }).lean();
+      res.render("feed.ejs", { posts: posts });
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  getFeedNew: async (req, res) => {
+    try {
+      const posts = await Post.find().sort({ createdAt: -1  }).lean();
       res.render("feed.ejs", { posts: posts });
     } catch (err) {
       console.log(err);

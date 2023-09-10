@@ -1,15 +1,21 @@
-<%- include('header') -%>
+<%- include('head') -%>
 <body class="posts-body">
   <div class="container">
     <%- include('sidebar') -%>
     <main class="posts">
-      <h1>Posts Made By Users Exploring Liminal Spaces</h1>
+      <h1>Discover Posts Made By Users</h1>
+      <div class="feed-buttons">
+        <button><a href="/feed/top">Top Posts</a></button>
+        <button><a href="/feed/new">Most Recent</a></button>
+      </div>
       <div class="posts-feed">
         <ul class="posts-list">
           <% for(var i=0; i<posts.length; i++) {%>
             <li class="post">
               <a href="/post/<%= posts[i]._id%>">
-                <img src="<%= posts[i].image%>">
+                <div class="image-container">
+                  <img src="<%= posts[i].image%>">
+                </div>
               </a>
             </li>
           <% } %>
