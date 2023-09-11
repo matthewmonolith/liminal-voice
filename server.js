@@ -8,6 +8,7 @@ const methodOverride = require("method-override"); //form in html is limited to 
 const flash = require("express-flash");//library for JS to handle flash messages, essentially when you put in incorrect information
 const logger = require("morgan");//logs stuff for you without breaking DPA
 const connectDB = require("./config/database"); //go to config to connec to our DB, rather than just putting the connection in server.js
+const cors = require('cors');
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comment");
