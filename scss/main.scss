@@ -361,6 +361,14 @@ body {
         .profile-posts {
             margin: 30px;
             max-height: 65vh;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(11.1px);
+            -webkit-backdrop-filter: blur(11.1px);
+            border: 1px solid rgba(255, 255, 255, 0.34);
+            padding: 30px;
+            max-height: 65vh;
 
             .profile-posts-feed {
 
@@ -387,6 +395,12 @@ body {
                         max-height: 300px;
                         margin-top: 10px;
                         border-radius: 4px;
+                        transition: transform 0.3s ease, filter 0.3s ease;
+                    }
+
+                    img:hover {
+                        transform: scale(1.2);
+                        filter: brightness(1.2)
                     }
                 }
 
@@ -511,6 +525,12 @@ body {
           animation-name: animationtransition;
           animation-duration: 0.8s;
           border-radius: 4px;
+          transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.2);
+            filter: brightness(1.2);
         }
       }
   }
@@ -628,7 +648,32 @@ body {
         .post-comments {
             h2 {
                 font-size: 2rem;
+                text-align: left;
             }
+
+            form {
+                div {
+                    input {
+                        @include input-style-small;
+                    }
+                }
+
+                button {
+                    @include submit-button;
+                }
+            }
+        }
+      }
+      .comments {
+        background: rgba(204, 125, 187, 0.05);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10.3px);
+        -webkit-backdrop-filter: blur(10.3px);
+        padding: 20px;
+        li {
+            font-size: 3rem;
+            list-style-type: none;
         }
       }
     }

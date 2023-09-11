@@ -412,6 +412,14 @@ body {
 .profile-body .profile .profile-posts {
   margin: 30px;
   max-height: 65vh;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(11.1px);
+  -webkit-backdrop-filter: blur(11.1px);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  padding: 30px;
+  max-height: 65vh;
 }
 .profile-body .profile .profile-posts .profile-posts-feed h2 {
   font-size: 4rem;
@@ -434,6 +442,11 @@ body {
   max-height: 300px;
   margin-top: 10px;
   border-radius: 4px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.profile-body .profile .profile-posts .profile-posts-feed li img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
 }
 .profile-body .profile .profile-posts .profile-addPost h2 {
   font-size: 2rem;
@@ -585,6 +598,11 @@ body {
   animation-name: animationtransition;
   animation-duration: 0.8s;
   border-radius: 4px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.posts .posts-feed .posts-list li img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
 }
 
 .post-body {
@@ -691,4 +709,40 @@ body {
 }
 .post-body main .post-postContainer .post-comments h2 {
   font-size: 2rem;
+  text-align: left;
+}
+.post-body main .post-postContainer .post-comments form div input {
+  padding: 10px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 0;
+  border-radius: 4px;
+  border: 0;
+}
+.post-body main .post-postContainer .post-comments form button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 0px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Roboto Mono", monospace;
+}
+.post-body main .comments {
+  background: rgba(204, 125, 187, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.3px);
+  -webkit-backdrop-filter: blur(10.3px);
+  padding: 20px;
+}
+.post-body main .comments li {
+  font-size: 3rem;
+  list-style-type: none;
 }/*# sourceMappingURL=main.css.map */
