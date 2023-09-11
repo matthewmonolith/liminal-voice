@@ -27,6 +27,9 @@ app.set("view engine", "ejs");
 //Static Folder
 app.use(express.static("public"));
 
+//CORS
+app.use(cors());
+
 //Body Parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
