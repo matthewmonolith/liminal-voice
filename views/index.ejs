@@ -5,9 +5,14 @@
       <!-- <img src="/imgs/logo transparent.png" alt="Logo"> -->
         <h1><a href="/profile">Voices From Liminal Space</a></h1>
         <span>A Social Network For Fans Of Liminal Space</span>
-        <span class="siteInfo-question"><a href="#">What is Liminal Space?</a></span>
+        <span class="siteInfo-question primary" onclick="window.dialog.showModal();">What is Liminal Space?</span>
     </div>
-
+    <dialog id="dialog">
+      <h2 class="description">Definition</h2>
+      <p class="description">Liminal Space is a location which is a transition between two other locations, or states of being. Typically these are abandoned, and often times empty - a mall at 4am or a school hallway during summer, for example. This makes it feel frozen and slightly unsettling, but also familiar to our minds.</p>
+      <a href="https://aesthetics.fandom.com/wiki/Liminal_Space">Examples</a>
+      <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
+    </dialog>
     <div class="main-content-login-container">
               <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
               <div class="main-content-login-alert"><%= el.msg %></div>

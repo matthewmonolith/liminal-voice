@@ -47,6 +47,10 @@ body {
     -webkit-backdrop-filter: blur(7.8px);
     color: white;
 
+    @media (max-width:1190px) {
+        display: none;
+    }
+
     img {
         max-width: 100%; /* Ensure the image doesn't exceed the sidebar's width */
         height: auto; /* Automatically adjust the height to maintain aspect ratio */
@@ -68,7 +72,6 @@ body {
         height: 100vh;
     }
   }
-  
 
 /* Styles for the sidebar links */
 .sidebar .sidebar-links {
@@ -96,7 +99,11 @@ body {
     gap: 80px;
 
 
-    
+    @media (max-width: 1361px){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
         
     &-login-alert {
         color: white;
@@ -107,6 +114,46 @@ body {
     }
     
 
+    dialog {
+        padding: 1rem 3rem;
+        background: white;
+        max-width: 400px;
+        padding-top: 2rem;
+        border-radius: 20px;
+        border: 0;
+        box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+
+        .x {
+            filter: grayscale(1);
+            border: none;
+            background: none;
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            transition: ease filter, transform 0.3s;
+            cursor: pointer;
+            transform-origin: center;
+            &:hover {
+                filter: grayscale(0);
+                transform: scale(1.1);
+            }
+        }
+        h2 {
+            font-weight: 600;
+            font-size: 2rem;
+            padding-bottom: 1rem;
+        }
+        p {
+            font-size: 1.5rem;
+            padding: 0.5rem 0;
+            a {
+                color: #0056b3;
+                &:visited {
+                    color: rgb(var(--vs-primary));
+                }
+            }
+        }
+    }
 
 
 
@@ -119,10 +166,28 @@ body {
         h1 {
             margin: 5px 0;
             font-size: 6.5rem;
+
+                    
+            @media (max-width: 1000px){
+                font-size: 5rem;
+            }
+
+            @media (max-width: 800px){
+                font-size: 4rem;
+            }
+
+            @media (max-width:600px) {
+                text-align: center;
+            }
         }
 
         span {
             font-size: 3rem;
+
+            @media (max-width: 800px){
+                font-size: 2rem;
+                text-align: center;
+            }
         }
 
         .siteInfo-question {
@@ -130,8 +195,20 @@ body {
             background: #04AA6D;
             padding: 17px;
             border-radius: 4px;
-            font-size: 1.9rem;
-            font-weight: weight(regular);
+            font-size: 2.8rem;
+            display: inline-block;
+            color: #fff !important;
+            background: rgb(var(--vs-primary) / 100%);
+            padding: 13px 25px;
+            border-radius: 17px;
+            transition: background-color 0.1s ease;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 20px -10px rgb(var(--vs-primary) / 50%);
+            &:hover {
+                box-shadow: 0 20px 20px -10px rgb(var(--vs-primary) / 50%);
+                transform: translateY(-5px);
+            }
         }
     }
     
@@ -216,15 +293,64 @@ body {
 .profile-body {
     background: linear-gradient(to bottom, #C0C0C0, #A0A0A0);
     color: white;
+    height: 100%;
+    overflow: auto;
+
+    
+    .topnav {
+        overflow: hidden;
+        // background-color: #333;
+        position: relative;
+      }
+      
+      /* Hide the links inside the navigation menu (except for logo/home) */
+      .topnav .sidebar-links {
+        display: none;
+      }
+      
+      /* Style navigation menu links */
+      .topnav a {
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+      }
+      
+      /* Style the hamburger menu */
+      .topnav a.icon {
+        background: #04AA6D;
+        display: none;
+        right: 0;
+        top: 0;
+        z-index: 999;
+
+        @media (max-width: 1190px) {
+            display: block;
+            position: relative;
+        }
+      }
+      
+      /* Add a grey background color on mouse-over */
+      .topnav a:hover {
+        background-color: #ddd;
+        color: #04AA6D;
+      }
+      
+      /* Style the active link (or home/logo) */
+      .active {
+        background-color: #04AA6D;
+        color: white;
+      }
 
     .profile {
         width: 100%;
         display: flex;
         flex-direction: row;
         min-height: 100vh;
+        overflow: auto;
 
         &-info {
-            // @include center-flex(column);
             flex:1;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 16px;
@@ -232,30 +358,25 @@ body {
             backdrop-filter: blur(11.1px);
             -webkit-backdrop-filter: blur(11.1px);
             border: 1px solid rgba(255, 255, 255, 0.34);
-            padding: 40px;
+            padding: 30px;
             margin: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-start;
             max-width: 30vh;
             max-height: 65vh;
-
-            @media (max-width: 1920px) {
-                max-height: 100% /* starts to look bad after 1750px width*/
-              }
-              
-
-            p {
-                font-size: 3.5rem;
-                margin: 10px 0;
-                text-align: center;
-            }
+            overflow: auto;
 
             .profile-profilePic {
                 @include center-flex(column);
-                margin-top: 20px;
                 align-self: center;
+
+                p {
+                    font-size: 3.5rem;
+                    margin: 10px 0;
+                    text-align: center;
+                }
 
                 
                 .bio {
@@ -345,6 +466,7 @@ body {
                     margin: 5px 0;
                     font-size: 2rem;
                     text-align: center;
+    
                 }
 
                 a {
@@ -356,6 +478,7 @@ body {
         }
         &-posts {
             flex:2;
+            overflow: auto;
         }
 
         .profile-posts {
@@ -369,6 +492,7 @@ body {
             border: 1px solid rgba(255, 255, 255, 0.34);
             padding: 30px;
             max-height: 65vh;
+            overflow: auto;
 
             .profile-posts-feed {
 
@@ -381,6 +505,7 @@ body {
                     flex-direction: row;
                     gap:5px;
                     flex-wrap: wrap;
+                    padding: 0;
                 }
 
                 li {
@@ -455,6 +580,35 @@ body {
         }
     }
 }
+
+//PROFILE RESPONSIVENESS
+@media (max-height: 1150px) {
+    .profile-body {
+        .profile {
+            flex-direction: row;
+            &-info {
+                .profile-profilePic {
+                    p {
+                        font-size: 2.3rem;
+                    }
+
+                    .profilePic-container{
+                        width: 150px;
+                        height: 150px;
+                    }
+                }
+                .profile-misc {
+                    span {
+                        font-size: 1.7rem;
+                    }
+                }
+            }
+        }
+    }
+  }
+  
+
+
 
 //FEED
 .posts-body {

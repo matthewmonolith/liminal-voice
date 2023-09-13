@@ -1,13 +1,33 @@
 <%- include('head') -%>
 <body class="profile-body">
+  <section class="topnav">
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+        <a href="javascript:void(0);" class="icon" onclick="openNav()">
+          <i class="fa fa-bars"></i>
+        </a>
+    <!-- Navigation links (hidden by default) -->
+    <div class="sidebar-links" id="myLinks">
+      <a href="/">Home</a>
+      <a href="/feed/oldest">Discover</a>
+      <a href="/profile">Profile</a>
+      <a href="#">Site Help</a>
+      <a href="#">Contact</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </section>
   <section class="profile">
     <%- include('sidebar') -%>
     <section class="profile-info">
       <div class="profile-profilePic">
         <p><%= user.userName %></p>
         <div class="profilePic-container">
-          <img src="<%=user.profilePicture%>" alt="<%=user.username%> profile picture">
+          <% if (!user.profilePicture || user.profilePicture.trim() === '') { %>
+            <img src="/imgs/default.jpg" alt="<%= user.username %> profile picture">
+          <% } else { %>
+            <img src="<%= user.profilePicture %>" alt="<%= user.username %> profile picture">
+          <% } %>
         </div>
+        
         <p class="bio"><%= user.bio %></p>
         <form action="/user/uploadProfilePic/<%=user._id%>?_method=PUT" enctype="multipart/form-data" method="POST">
           <label for="imageUpload" class="custom-file-upload">
