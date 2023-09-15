@@ -714,6 +714,47 @@ body {
   height: 100vh;
   padding: 0;
   margin: 0;
+  overflow: auto;
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  /* Style navigation menu links */
+  /* Style the hamburger menu */
+  /* Add a grey background color on mouse-over */
+  /* Style the active link (or home/logo) */
+}
+.posts-body .topnav {
+  overflow: hidden;
+  position: relative;
+}
+.posts-body .topnav .sidebar-links {
+  display: none;
+}
+.posts-body .topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+.posts-body .topnav a.icon {
+  background: #04AA6D;
+  display: none;
+  right: 0;
+  top: 0;
+  z-index: 999;
+}
+@media (max-width: 1190px) {
+  .posts-body .topnav a.icon {
+    display: block;
+    position: relative;
+  }
+}
+.posts-body .topnav a:hover {
+  background-color: #ddd;
+  color: #04AA6D;
+}
+.posts-body .active {
+  background-color: #04AA6D;
+  color: white;
 }
 
 .container {
@@ -790,6 +831,27 @@ body {
   filter: brightness(1.2);
 }
 
+@media (max-width: 1190px) {
+  .posts-body {
+    display: block;
+    height: auto;
+  }
+  .posts-body .container {
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+@media (max-width: 750px) {
+  .posts-body .container .posts .posts-feed .posts-list {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .posts-body .container .posts .posts-feed .posts-list .post .image-container {
+    max-height: 300px;
+    max-width: 300px;
+  }
+}
 .post-body {
   background-image: url("/imgs/alex-pavor-eP-d0Ja7pcs-unsplash.jpg");
   background-size: cover;
@@ -804,6 +866,46 @@ body {
   align-items: flex-start; /* Align items at the start (top) vertically */
   height: 100%;
   overflow: hidden;
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  /* Style navigation menu links */
+  /* Style the hamburger menu */
+  /* Add a grey background color on mouse-over */
+  /* Style the active link (or home/logo) */
+}
+.post-body .topnav {
+  overflow: hidden;
+  position: relative;
+}
+.post-body .topnav .sidebar-links {
+  display: none;
+}
+.post-body .topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+.post-body .topnav a.icon {
+  background: #04AA6D;
+  display: none;
+  right: 0;
+  top: 0;
+  z-index: 999;
+}
+@media (max-width: 1190px) {
+  .post-body .topnav a.icon {
+    display: block;
+    position: relative;
+  }
+}
+.post-body .topnav a:hover {
+  background-color: #ddd;
+  color: #04AA6D;
+}
+.post-body .active {
+  background-color: #04AA6D;
+  color: white;
 }
 .post-body .sidebar {
   min-width: 150px;
@@ -930,4 +1032,16 @@ body {
 .post-body main .comments li {
   font-size: 3rem;
   list-style-type: none;
+}
+
+@media (max-width: 1190px) {
+  .post-body {
+    display: block;
+    height: auto;
+  }
+}
+@media (max-width: 750px) {
+  .post-body main .post-postContainer .comments li {
+    font-size: 2rem;
+  }
 }/*# sourceMappingURL=main.css.map */

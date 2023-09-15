@@ -690,6 +690,53 @@ body {
     flex-direction: row;
     min-height: 100vh;
     @include center-bg('/imgs/antipolygon-youtube-SAM4WPGSh_o-unsplash.jpg');
+    overflow: auto;
+
+    .topnav {
+        overflow: hidden;
+        // background-color: #333;
+        position: relative;
+      }
+      
+      /* Hide the links inside the navigation menu (except for logo/home) */
+      .topnav .sidebar-links {
+        display: none;
+      }
+      
+      /* Style navigation menu links */
+      .topnav a {
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+      }
+      
+      /* Style the hamburger menu */
+      .topnav a.icon {
+        background: #04AA6D;
+        display: none;
+        right: 0;
+        top: 0;
+        z-index: 999;
+
+        @media (max-width: 1190px) {
+            display: block;
+            position: relative;
+        }
+      }
+      
+      /* Add a grey background color on mouse-over */
+      .topnav a:hover {
+        background-color: #ddd;
+        color: #04AA6D;
+      }
+      
+      /* Style the active link (or home/logo) */
+      .active {
+        background-color: #04AA6D;
+        color: white;
+      }
   }
   
   .container {
@@ -764,6 +811,42 @@ body {
 }
 }
 
+//FEED Responsiveness
+@media (max-width:1190px) {
+    .posts-body {
+        display: block;
+        height: auto;
+        .container {
+            max-height: 100vh;
+            overflow-y: auto;
+        }
+    }
+}
+
+@media (max-width:750px) {
+        .posts-body {
+            .container{
+                .posts {
+                    .posts-feed {
+                        .posts-list {
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+    
+                            .post {
+                                .image-container{
+                                    max-height: 300px;
+                                    max-width: 300px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+}
+
+
 //Individual Post Page
 .post-body {
     @include center-bg('/imgs/alex-pavor-eP-d0Ja7pcs-unsplash.jpg');
@@ -773,6 +856,52 @@ body {
     align-items: flex-start; /* Align items at the start (top) vertically */
     height: 100%;
     overflow: hidden;
+
+    .topnav {
+        overflow: hidden;
+        // background-color: #333;
+        position: relative;
+      }
+      
+      /* Hide the links inside the navigation menu (except for logo/home) */
+      .topnav .sidebar-links {
+        display: none;
+      }
+      
+      /* Style navigation menu links */
+      .topnav a {
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+      }
+      
+      /* Style the hamburger menu */
+      .topnav a.icon {
+        background: #04AA6D;
+        display: none;
+        right: 0;
+        top: 0;
+        z-index: 999;
+
+        @media (max-width: 1190px) {
+            display: block;
+            position: relative;
+        }
+      }
+      
+      /* Add a grey background color on mouse-over */
+      .topnav a:hover {
+        background-color: #ddd;
+        color: #04AA6D;
+      }
+      
+      /* Style the active link (or home/logo) */
+      .active {
+        background-color: #04AA6D;
+        color: white;
+      }
   
     .sidebar {
       min-width: 150px;
@@ -907,4 +1036,24 @@ body {
   }
 
   
-  
+  //FEED responsiveness
+  @media (max-width:1190px) {
+    .post-body {
+        display: block;
+        height: auto;
+    }
+}
+
+@media (max-width:750px) {
+    .post-body{
+        main {
+            .post-postContainer {
+                .comments {
+                    li {
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
