@@ -95,6 +95,11 @@ body {
   padding: 0;
   margin: 0;
 }
+@media (max-width: 500px) {
+  .index-body {
+    overflow: hidden;
+  }
+}
 
 .main-content {
   display: flex;
@@ -178,6 +183,11 @@ body {
 @media (max-width: 600px) {
   .main-content .main-content-siteInfo h1 {
     text-align: center;
+  }
+}
+@media (max-width: 500px) {
+  .main-content .main-content-siteInfo h1 {
+    font-size: 3rem;
   }
 }
 .main-content .main-content-siteInfo span {
@@ -364,7 +374,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: row;
-  min-height: 100vh;
+  height: 100vh;
   overflow: auto;
 }
 .profile-body .profile-info {
@@ -563,8 +573,8 @@ body {
   animation-duration: 0.8s;
 }
 .profile-body .profile .profile-posts .profile-posts-feed li img {
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 400px;
+  max-height: 400px;
   margin-top: 10px;
   border-radius: 4px;
   transition: transform 0.3s ease, filter 0.3s ease;
@@ -653,8 +663,43 @@ body {
     width: 150px;
     height: 150px;
   }
+  .profile-body .profile-info .profile-profilePic form label span {
+    font-size: 1.2rem;
+  }
+  .profile-body .profile-info .profile-profilePic form button {
+    font-size: 1.2rem;
+  }
   .profile-body .profile-info .profile-misc span {
     font-size: 1.7rem;
+  }
+  .profile-body .profile .profile-posts .profile-posts-feed h2 {
+    font-size: 2.5rem;
+  }
+  .profile-body .profile .profile-posts .profile-posts-feed .post-feed-list .feed-list-item a img {
+    max-width: 250px;
+    max-height: 250px;
+  }
+}
+@media (max-width: 1110px), (max-height: 920px) {
+  .sidebar {
+    display: none;
+  }
+  .profile-body {
+    height: auto;
+    overflow: auto;
+  }
+  .profile-body .topnav {
+    display: block !important;
+  }
+  .profile-body .profile {
+    display: block;
+  }
+  .profile-body .profile-info {
+    flex: initial;
+    max-width: 100%;
+  }
+  .profile-body .profile .profile-posts {
+    overflow-y: auto;
   }
 }
 .posts-body {

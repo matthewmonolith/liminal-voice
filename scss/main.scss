@@ -89,6 +89,10 @@ body {
 .index-body {
     @include center-flex(row);
     @include center-bg('/imgs/scarbor-siu-Ecb9O-btHYs-unsplash.jpg');
+
+    @media (max-width:500px) {
+        overflow: hidden;
+    }
 }
 
 
@@ -178,6 +182,10 @@ body {
 
             @media (max-width:600px) {
                 text-align: center;
+            }
+
+            @media (max-width:500px) {
+                font-size: 3rem;
             }
         }
 
@@ -347,7 +355,7 @@ body {
         width: 100%;
         display: flex;
         flex-direction: row;
-        min-height: 100vh;
+        height: 100vh;
         overflow: auto;
 
         &-info {
@@ -516,8 +524,8 @@ body {
                     animation-duration: 0.8s;
 
                     img {
-                        max-width: 300px;
-                        max-height: 300px;
+                        max-width: 400px;
+                        max-height: 400px;
                         margin-top: 10px;
                         border-radius: 4px;
                         transition: transform 0.3s ease, filter 0.3s ease;
@@ -596,6 +604,19 @@ body {
                         width: 150px;
                         height: 150px;
                     }
+
+                    form {
+                        label {
+                            span {
+                                font-size: 1.2rem;
+                            }
+                        }
+
+                        
+                        button {
+                            font-size: 1.2rem;
+                        }
+                    }
                 }
                 .profile-misc {
                     span {
@@ -603,12 +624,64 @@ body {
                     }
                 }
             }
+
+                
+                // @media (max-height:950px){
+                //     &-info {
+                //         max-height: 70vh;
+                //     }       
+                // }
+
+            .profile-posts {
+                .profile-posts-feed {
+                    h2 {
+                        font-size: 2.5rem;
+                    }
+                    .post-feed-list  {
+                        // flex-direction: column;
+                        .feed-list-item {
+                            a {
+                                img{
+                                    max-width: 250px;
+                                    max-height: 250px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
         }
     }
   }
+
+  @media (max-width: 1110px), (max-height: 920px) {
+    .sidebar {
+      display: none;
+    }
+    .profile-body {
+      height: auto;
+      overflow: auto;
+      .topnav {
+        display: block !important;
+      }
+      .profile {
+        display: block;
   
+        &-info {
+          flex: initial;
+          max-width: 100%;
+          // margin: 10px;
+        }
+        .profile-posts {
+        //   height: 50vh; 
+          overflow-y: auto;
+        }
+      }
+    }
+  }
 
-
+  
 
 //FEED
 .posts-body {

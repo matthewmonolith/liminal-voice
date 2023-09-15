@@ -1,20 +1,6 @@
 <%- include('head') -%>
 <body class="profile-body">
-  <section class="topnav">
-        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-        <a href="javascript:void(0);" class="icon" onclick="openNav()">
-          <i class="fa fa-bars"></i>
-        </a>
-    <!-- Navigation links (hidden by default) -->
-    <div class="sidebar-links" id="myLinks">
-      <a href="/">Home</a>
-      <a href="/feed/oldest">Discover</a>
-      <a href="/profile">Profile</a>
-      <a href="#">Site Help</a>
-      <a href="#">Contact</a>
-      <a href="/logout">Logout</a>
-    </div>
-  </section>
+  <%- include('topnav') -%>
   <section class="profile">
     <%- include('sidebar') -%>
     <section class="profile-info">
