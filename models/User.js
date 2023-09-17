@@ -5,7 +5,7 @@ const UserSchema = new mongoose.Schema({
   userName: { type: String, unique: true },
   email: { type: String, unique: true },
   password: String,
-  bio:{type:String, default:'user bio...', sparse:true},
+  bio:{type:String, default:'user bio...'},
   profilePicture: { type: String, sparse: true },
   pfpCloudinaryId:{type:String, sparse:true}
 });
