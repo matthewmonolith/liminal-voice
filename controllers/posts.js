@@ -56,9 +56,14 @@ module.exports = {
   },
   createPost: async (req, res) => {
     try {
+      if (!req.body.title || !req.body.caption || !req.file) {
+        // If any required field is missing, return a 404 error
+        return res.status(404).send("Title, caption, and image are required.");
+      }
+  
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
-
+  
       await Post.create({
         title: req.body.title,
         image: result.secure_url,
@@ -67,10 +72,13 @@ module.exports = {
         likes: 0,
         user: req.user.id,
       });
+      
       console.log("Post has been added!");
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
+      // Handle other errors as needed, e.g., return a 500 internal server error
+      res.status(500).send("Internal Server Error");
     }
   },
   likePost: async (req, res) => {

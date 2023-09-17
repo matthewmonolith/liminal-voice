@@ -55,26 +55,26 @@
         <% } %>
         </ul>
       </div>  
-          <div class="profile-addPost">
-                <h2>Add a post (currently a title, caption and image is required)</h2>
-                <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-                  <div class="addPost-info">
-                    <div class="addPost-info-title">
-                        <input type="text" class="form-control" id="title" name="title" placeholder="title">
-                    </div>
-                      <div class="addPost-info-caption">
-                        <textarea class="form-control" id="caption" name="caption" placeholder="add a caption to your post"></textarea>
-                      </div>
-                  </div>
-                  <div class="addPost-image">
-                    <!-- <label for="imageUpload" class="custom-file-upload">
-                      Upload Image
-                    </label> -->
-                    <input type="file" class="form-control" id="imageUpload" name="file">   
-                    <button type="submit" class="profile-addPost-submit" value="Upload">Submit</button>                 
-                  </div>                  
-                </form>
-          </div>
+        <div class="profile-addPost">
+          <h2>Add a post (currently a title, caption and image is required)</h2>
+          <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+            <div class="addPost-info">
+              <div class="addPost-info-title">
+                <input type="text" class="form-control" id="title" name="title" placeholder="title" required>
+              </div>
+              <div class="addPost-info-caption">
+                <textarea class="form-control" id="caption" name="caption" placeholder="add a caption to your post" required></textarea>
+              </div>
+            </div>
+            <div class="addPost-image">
+              <!-- <label for="imageUpload" class="custom-file-upload">
+                Upload Image
+              </label> -->
+              <input type="file" class="form-control" id="imageUpload" name="file" required>   
+              <button type="submit" class="profile-addPost-submit" value="Upload">Submit</button>                 
+            </div>                  
+          </form>
+        </div>      
       </section>
   </section>
   <script src="/js/main.js"></script>
