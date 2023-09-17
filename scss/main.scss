@@ -557,11 +557,26 @@ body {
                     input {
                         @include input-style-small
                     }
+
+                    .addPost-info {
+                        .addPost-info-title{
+                            display: flex;
+                            flex-direction: column;
+
+                            input {
+                                @include input-style-small;
+                                width: 200px;
+                            }
+                        }
+                    }
                 }
 
                 .addPost-info-caption {
+                    display: flex;
+                    flex-direction: column;
                     textarea {
-                        @include input-style-small
+                        @include input-style-small;
+                        width: 200px;
                     }
                 }
 
