@@ -6,8 +6,8 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, unique: true },
   password: String,
   bio:{type:String, default:'user bio...', sparse:true},
-  profilePicture: { type: String, unique: true, sparse: true },
-  pfpCloudinaryId:{type:String, unique:true, sparse:true}
+  profilePicture: { type: String, sparse: true },
+  pfpCloudinaryId:{type:String, sparse:true}
 });
 
 // Password hash middleware.
