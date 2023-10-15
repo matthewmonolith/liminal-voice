@@ -16,7 +16,7 @@
             action="/post/likePost/<%= post.id %>?_method=PUT"
             method="POST"
           >
-            <button type="submit"><i class="fa-solid fa-thumbs-up"></i></button>
+          <button id="like" type="submit"><i class="fa fa-thumbs-up"></i></button>
           </form>
           <h3>Likes: <%= post.likes %></h3>
           <%if(post.user == user.id){ %>
@@ -24,7 +24,7 @@
             action="/post/deletePost/<%= post.id %>?_method=DELETE"
             method="POST"
           >
-            <button type="submit"><i id='bin' class="fa-solid fa-trash"></i></button>
+            <button type="submit"><i class="fa fa-trash" id="bin"></i></i></button>
           </form>
           <%}%>
         </div>
